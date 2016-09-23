@@ -92,13 +92,6 @@
                 $(this).parent("ul").next("div#alltabpanels").children("div").not("[id='" + controls + "']").removeClass("blockeddisplayed").addClass("notdisplayed");
 
 
-
-
-
-
-
-
-
                 //  $(this).parent("ul").next("div#alltabpanels").children("div.widgettabpanel:first").attr("class", "blockeddisplayed");
                 //$(this).nextAll("div.notactive:first").attr("class", "active");
                 //                $("div.active").next("div").attr("class", "active");
@@ -107,15 +100,13 @@
 
             });
 
+            $("ul#widgettablist li").click(function () {
+                $(this).focus();
+
+            });
+
 
             $("ul#widgettablist li").keydown(function (e) {
-
-
-
-
-
-
-
 
 
                 var code = e.which;
@@ -150,7 +141,6 @@
 
                 if (code == 13) {
                     $(this).focus();
-
 
 
 
