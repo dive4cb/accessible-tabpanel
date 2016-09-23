@@ -116,7 +116,7 @@
                         $(this).prev("li:first").focus();
                     };
                 };
-                if (code == 8) {
+                if (code == 8 || code == 46) {
                     var controls = $(this).attr("aria-controls");
                     if (code == 8) e.preventDefault();
                     $(this).addClass("notdisplayed");
