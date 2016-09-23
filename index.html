@@ -110,7 +110,7 @@
 
 
                 var code = e.which;
-                if (code == 13 || code == 40 || code == 39 || code == 37 || code == 38) e.preventDefault();
+                if (code == 40 || code == 39 || code == 37 || code == 38) e.preventDefault();
                 if (code == 40 || code == 39) {
 
                     if ($(this).is(':last-child')) {
@@ -139,14 +139,14 @@
                     //  $(this).off("keydown");
                 };
 
-                if (code == 13) {
-                    $(this).focus();
-
-
-
-                    //  $("li:first").focus();
-                    //   $(this).off("keydown");
-                };
+//                if (code == 13) {
+//                    $(this).focus();
+//
+//
+//
+//                    //  $("li:first").focus();
+//                    //   $(this).off("keydown");
+//                };
             });
 
             //$( "input[value='Hot Fuzz']" ).next().text( "Hot Fuzz" );
