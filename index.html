@@ -8,10 +8,12 @@
     <style>
         #alltabpanels {
             position: relative;
+            border: solid black thin;
+            padding: 1em;
         }
         
-        .widgettabpanel {
-            position: absolute;
+        li[aria-selected="true"] {
+            background-color: yellow;
         }
         
         .notdisplayed {
@@ -25,7 +27,7 @@
         #widgettablist li {
             display: inline;
             margin: 0;
-            padding: 0;
+            padding: 1em 1em 0 1em;
         }
         
         ul#widgettablist {
@@ -39,13 +41,13 @@
     <h1>Accessible Tabpanel</h1>
     <h2>Our List Of Amazing Tabs</h2>
     <ul role="tablist" id="widgettablist">
-        <li role="tab" aria-controls="tabpanel1">Tab 1</li>
-        <li role="tab" aria-controls="tabpanel2">Tab 2</li>
-        <li role="tab" aria-controls="tabpanel3">Tab 3</li>
-        <li role="tab" aria-controls="tabpanel4">Tab 4</li>
-        <li role="tab" aria-controls="tabpanel5">Tab 5</li>
-        <li role="tab" aria-controls="tabpanel6">Tab 6</li>
-        <li role="tab" aria-controls="tabpanel7">Tab 7</li>
+        <li role="tab" aria-controls="tabpanel1" aria-selected="true" tabindex="0">Tab 1</li>
+        <li role="tab" aria-controls="tabpanel2" tabindex="-1">Tab 2</li>
+        <li role="tab" aria-controls="tabpanel3" tabindex="-1">Tab 3</li>
+        <li role="tab" aria-controls="tabpanel4" tabindex="-1">Tab 4</li>
+        <li role="tab" aria-controls="tabpanel5" tabindex="-1">Tab 5</li>
+        <li role="tab" aria-controls="tabpanel6" tabindex="-1">Tab 6</li>
+        <li role="tab" aria-controls="tabpanel7" tabindex="-1">Tab 7</li>
     </ul>
     <div id="alltabpanels">
         <div role="tabpanel" id="tabpanel1" class="widgettabpanel blockeddisplayed">
@@ -81,6 +83,75 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
+
+            $("ul#widgettablist li").focus(function () {
+                var controls = $(this).attr("aria-controls");
+                $(this).attr("aria-controls", controls).attr("aria-selected", true).attr("tabindex", "0");
+                $("ul#widgettablist li").not("[aria-controls='" + controls + "']").removeAttr("aria-selected").attr("tabindex", "-1");
+                $(this).parent("ul").next("div#alltabpanels").children("div[id='" + controls + "']").removeClass("notdisplayed").addClass("blockeddisplayed");
+                $(this).parent("ul").next("div#alltabpanels").children("div").not("[id='" + controls + "']").removeClass("blockeddisplayed").addClass("notdisplayed");
+
+
+
+
+
+
+
+
+
+                //  $(this).parent("ul").next("div#alltabpanels").children("div.widgettabpanel:first").attr("class", "blockeddisplayed");
+                //$(this).nextAll("div.notactive:first").attr("class", "active");
+                //                $("div.active").next("div").attr("class", "active");
+                //                $("div.active").attr("class", "notactive");
+                //                $(".notactive").attr("class", "active");
+
+            });
+
+
+            $("ul#widgettablist li").keydown(function (e) {
+
+
+
+
+
+
+
+
+
+                var code = e.which;
+                if (code == 40 || code == 39 || code == 37 || code == 38) e.preventDefault();
+                if (code == 40 || code == 39) {
+
+                    if ($(this).is(':last-child')) {
+                        $("li:first").focus();
+                    } else {
+                        $(this).next("li:first").focus();
+                    };
+
+
+
+                    //  $("li:first").focus();
+                    //   $(this).off("keydown");
+                };
+                if (code == 37 || code == 38) {
+                    
+                                        if ($(this).is(':first-child')) {
+                        $("li:last").focus();
+                    } else {
+                             $(this).prev("li:first").focus();
+                    };
+                    
+                    
+                    
+                    
+              
+                    //  $(this).off("keydown");
+                };
+            });
+
+            //$( "input[value='Hot Fuzz']" ).next().text( "Hot Fuzz" );
+
+
             //            var ban = $('div[id^="banner"]').hide(),
             //                i = 0;
             //
@@ -96,28 +167,28 @@
 
 
 
-            $('#prevbanner').on('click', function () {
-                var $last = $('div[id^="banner"]:last');
-                $last.remove().css({
-                    'margin-left': '-800px'
-                });
-                $('div[id^="banner"]:first').before($last);
-                $last.animate({
-                    'margin-left': '0px'
-                }, 2000);
-            });
-
-            $('#nextbanner').on('click', function () {
-                var $first = $('div[id^="banner"]:first');
-                $first.animate({
-                    'margin-left': '-800px'
-                }, 2000, function () {
-                    $first.remove().css({
-                        'margin-left': '0px'
-                    });
-                    $('div[id^="banner"]:last').after($first);
-                });
-            });
+            //            $('#prevbanner').on('click', function () {
+            //                var $last = $('div[id^="banner"]:last');
+            //                $last.remove().css({
+            //                    'margin-left': '-800px'
+            //                });
+            //                $('div[id^="banner"]:first').before($last);
+            //                $last.animate({
+            //                    'margin-left': '0px'
+            //                }, 2000);
+            //            });
+            //
+            //            $('#nextbanner').on('click', function () {
+            //                var $first = $('div[id^="banner"]:first');
+            //                $first.animate({
+            //                    'margin-left': '-800px'
+            //                }, 2000, function () {
+            //                    $first.remove().css({
+            //                        'margin-left': '0px'
+            //                    });
+            //                    $('div[id^="banner"]:last').after($first);
+            //                });
+            //            });
 
 
 
