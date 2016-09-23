@@ -1,26 +1,197 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accessible Tabpanel</title>
+    <style>
+        #alltabpanels {
+            position: relative;
+        }
+        
+        .widgettabpanel {
+            position: absolute;
+        }
+        
+        .notdisplayed {
+            display: none;
+        }
+        
+        .blockeddisplayed {
+            display: block;
+        }
+        
+        #widgettablist li {
+            display: inline;
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul#widgettablist {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Accessible Tabpanel</h1>
-    <h2>Tab 1</h2>
-        <div></div>
-    <h2>Tab 2</h2>
-        <div></div>
-    <h2>Tab 3</h2>
-        <div></div>
-    <h2>Tab 4</h2>
-        <div></div>
-    <h2>Tab 6</h2>
-        <div></div>
-    <h2>Tab 7</h2>
-        <div></div>
+    <h2>Our List Of Amazing Tabs</h2>
+    <ul role="tablist" id="widgettablist">
+        <li role="tab" aria-controls="tabpanel1">Tab 1</li>
+        <li role="tab" aria-controls="tabpanel2">Tab 2</li>
+        <li role="tab" aria-controls="tabpanel3">Tab 3</li>
+        <li role="tab" aria-controls="tabpanel4">Tab 4</li>
+        <li role="tab" aria-controls="tabpanel5">Tab 5</li>
+        <li role="tab" aria-controls="tabpanel6">Tab 6</li>
+        <li role="tab" aria-controls="tabpanel7">Tab 7</li>
+    </ul>
+    <div id="alltabpanels">
+        <div role="tabpanel" id="tabpanel1" class="widgettabpanel blockeddisplayed">
+            <h3>Tab Heading 1</h3>
+            <p>Tab Content 1</p>
+        </div>
+        <div role="tabpanel" id="tabpanel2" class="widgettabpanel notdisplayed">
+            <h3>Tab Heading 2</h3>
+            <p>Tab Content 2</p>
+        </div>
+        <div role="tabpanel" id="tabpanel3" class="widgettabpanel notdisplayed">
+            <h3>Tab Heading 3</h3>
+            <p>Tab Content 3</p>
+        </div>
+        <div role="tabpanel" id="tabpanel4" class="widgettabpanel notdisplayed">
+            <h3>Tab Heading 4</h3>
+            <p>Tab Content 4</p>
+        </div>
+        <div role="tabpanel" id="tabpanel5" class="widgettabpanel notdisplayed">
+            <h3>Tab Heading 5</h3>
+            <p>Tab Content 5</p>
+        </div>
+        <div role="tabpanel" id="tabpanel6" class="widgettabpanel notdisplayed">
+            <h3>Tab Heading 6</h3>
+            <p>Tab Content 6</p>
+        </div>
+        <div role="tabpanel" id="tabpanel7" class="widgettabpanel notdisplayed">
+            <h3>Tab Heading 7</h3>
+            <p>Tab Content 7</p>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            //            var ban = $('div[id^="banner"]').hide(),
+            //                i = 0;
+            //
+            //            (function cycle() {
+            //
+            //                ban.eq(i).fadeIn(400)
+            //                    .delay(4000)
+            //                    .fadeOut(400, cycle);
+            //
+            //                i = ++i % ban.length;
+            //
+            //            })();
+
+
+
+            $('#prevbanner').on('click', function () {
+                var $last = $('div[id^="banner"]:last');
+                $last.remove().css({
+                    'margin-left': '-800px'
+                });
+                $('div[id^="banner"]:first').before($last);
+                $last.animate({
+                    'margin-left': '0px'
+                }, 2000);
+            });
+
+            $('#nextbanner').on('click', function () {
+                var $first = $('div[id^="banner"]:first');
+                $first.animate({
+                    'margin-left': '-800px'
+                }, 2000, function () {
+                    $first.remove().css({
+                        'margin-left': '0px'
+                    });
+                    $('div[id^="banner"]:last').after($first);
+                });
+            });
+
+
+
+            //            var toggleFx = function () {
+            //                $.fx.off = !$.fx.off;
+            //            };
+            //            toggleFx();
+            //            $('div[id^="banner"]').hover(toggleFx);
+            //            $("input").click(function () {
+            //                $("div").toggle("slow");
+            //            });
+
+
+            //            $('div[id^="banner"]').hover(function () {
+            //                $(this).stop(true, true).fadeOut();
+            //            }, function () {
+            //                $(this).stop(true, true).fadeIn();
+            //            });
+
+
+            //            $("#nextbanner").click(function () {
+            //                //   alert("Remove Alert");
+            //                $(this).next("div.active").attr("class", "notactive");
+            //                $(this).nextAll("div.notactive:first").attr("class", "active");
+            //                //                $("div.active").next("div").attr("class", "active");
+            //                //                $("div.active").attr("class", "notactive");
+            //                //                $(".notactive").attr("class", "active");
+            //
+            //            });
+
+
+
+
+
+            //            //            $(".moreinfo").css("display", "none").attr("role", "tabpanel");
+            //            //            $(".clickme").attr("aria-expanded", "false").attr("role", "tab").attr("tabindex", "-1");
+            //            //            $("#tablist").attr("role", "tablist").attr("tabindex", "0");
+            //            //            $("#tablist").attr("aria-multiselectable", "true");
+            //            //            $(".clickme").focus(function () {
+            //            //                $(this).attr("aria-selected", "true");
+            //            //            });
+            //            //            $(".clickme").blur(function () {
+            //            //                $(this).removeAttr("aria-selected");
+            //            //            });
+            //            $("#aa").click(function () {
+            //             //   alert("Add Alert");
+            //                $("#alert").html("<p>Please Enter Your First Name</p>");
+            //            });
+
+            //            //            $("#tablist").focus(function () {
+            //            //                $(this).keydown(function (e) {
+            //            //                    var code = e.which;
+            //            //                    if (code == 13 || code == 40 || code == 39) e.preventDefault();
+            //            //                    if (code == 13 || code == 40 || code == 39) {
+            //            //                        $(this).children("h2.clickme:first").focus();
+            //            //                        $(this).off("keydown");
+            //            //                    };
+            //            //                });
+            //            //            });
+            //            //            $(".clickme").keydown(function (e) {
+            //            //                var code = e.which;
+            //            //                if (code == 32 || code == 13 || code == 38 || code == 37 || code == 40 || code == 39) e.preventDefault();
+            //            //                if (code == 32 || code == 13) {
+            //            //                    $(this).click();
+            //            //                };
+            //            //                if (code == 38 || code == 37) {
+            //            //                    $(this).prevAll("h2.clickme:first").focus();
+            //            //                };
+            //            //                if (code == 40 || code == 39) {
+            //            //                    $(this).nextAll("h2.clickme:first").focus();
+            //            //                };
+            //            //            });
+        });
+    </script>
 </body>
 
 </html>
