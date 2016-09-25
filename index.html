@@ -142,13 +142,13 @@
 
             $("ul#widgettablist li").focus(function () {
 
-//
-//                var controls = $(this).attr("aria-controls");
-//                $(this).attr("aria-controls", controls).attr("aria-selected", true).attr("tabindex", "0");
-//                $("ul#widgettablist li").not("[aria-controls='" + controls + "']").removeAttr("aria-selected").attr("tabindex", "-1");
-//                $(this).parent("ul").next("div#alltabpanels").children("div[id='" + controls + "']").removeClass("notdisplayed").addClass("blockeddisplayed");
-//                $(this).parent("ul").next("div#alltabpanels").children("div").not("[id='" + controls + "']").removeClass("blockeddisplayed").addClass("notdisplayed");
-//            });
+
+                var controls = $(this).attr("aria-controls");
+                $(this).attr("aria-controls", controls).attr("aria-selected", true).attr("tabindex", "0");
+                $("ul#widgettablist li").not("[aria-controls='" + controls + "']").removeAttr("aria-selected").attr("tabindex", "-1");
+                $(this).parent("ul").next("div#alltabpanels").children("div[id='" + controls + "']").removeClass("notdisplayed").addClass("blockeddisplayed");
+                $(this).parent("ul").next("div#alltabpanels").children("div").not("[id='" + controls + "']").removeClass("blockeddisplayed").addClass("notdisplayed");
+            });
 
             $("ul#widgettablist li").click(function () {
                 $(this).focus();
@@ -159,22 +159,22 @@
                 var code = e.which;
                 if (code == 40 || code == 39) {
                     if ($(this).is(':last-child')) {
-                        $("li:first").focus();
-                        alert("1");
+                        $(this).next("li:first").focus();
+                   //     alert("1");
                     } else {
                         $(this).next("li:first").focus();
-                        alert("2");
+                   //     alert("2");
                     };
             //        e.preventDefault();
                 };
                 if (code == 37 || code == 38) {
 
                     if ($(this).is(':first-child')) {
-                        $("li:last").focus();
-                        alert("3");
+                        $(this).prev("li:first").focus();
+                  //      alert("3");
                     } else {
                         $(this).prev("li:first").focus();
-                        alert("4");
+                   //     alert("4");
                     };
          //           e.preventDefault();
                 };
