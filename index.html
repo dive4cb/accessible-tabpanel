@@ -142,13 +142,13 @@
 
             $("ul#widgettablist li").focus(function () {
 
-
-                var controls = $(this).attr("aria-controls");
-                $(this).attr("aria-controls", controls).attr("aria-selected", true).attr("tabindex", "0");
-                $("ul#widgettablist li").not("[aria-controls='" + controls + "']").removeAttr("aria-selected").attr("tabindex", "-1");
-                $(this).parent("ul").next("div#alltabpanels").children("div[id='" + controls + "']").removeClass("notdisplayed").addClass("blockeddisplayed");
-                $(this).parent("ul").next("div#alltabpanels").children("div").not("[id='" + controls + "']").removeClass("blockeddisplayed").addClass("notdisplayed");
-            });
+//
+//                var controls = $(this).attr("aria-controls");
+//                $(this).attr("aria-controls", controls).attr("aria-selected", true).attr("tabindex", "0");
+//                $("ul#widgettablist li").not("[aria-controls='" + controls + "']").removeAttr("aria-selected").attr("tabindex", "-1");
+//                $(this).parent("ul").next("div#alltabpanels").children("div[id='" + controls + "']").removeClass("notdisplayed").addClass("blockeddisplayed");
+//                $(this).parent("ul").next("div#alltabpanels").children("div").not("[id='" + controls + "']").removeClass("blockeddisplayed").addClass("notdisplayed");
+//            });
 
             $("ul#widgettablist li").click(function () {
                 $(this).focus();
