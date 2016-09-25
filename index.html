@@ -150,9 +150,9 @@
                 $(this).parent("ul").next("div#alltabpanels").children("div").not("[id='" + controls + "']").removeClass("blockeddisplayed").addClass("notdisplayed");
             });
 
-                        $("ul#widgettablist li").click(function () {
-                            $(this).focus();
-                        });
+            $("ul#widgettablist li").click(function () {
+                $(this).focus();
+            });
 
             $("ul#widgettablist li").keydown(function (e) {
                 if (code == 40 || code == 39 || code == 37 || code == 38) e.preventDefault();
@@ -163,6 +163,8 @@
                     } else {
                         $(this).next("li:first").focus();
                     };
+        $(this).off("keydown");
+
                 };
                 if (code == 37 || code == 38) {
 
@@ -171,6 +173,7 @@
                     } else {
                         $(this).prev("li:first").focus();
                     };
+                    $(this).off("keydown");
                 };
                 //CB FIX THIS
                 if (code == 8 || code == 46) {
