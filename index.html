@@ -90,7 +90,7 @@
 <body>
     <h1>Accessible Tabpanel</h1>
     <h2>Our List Of Amazing Tabs</h2>
-    <ul role="tablist" id="widgettablist">
+    <ul id="widgettablist">
         <li id="tab1" role="tab" aria-controls="tabpanel1" aria-selected="true" tabindex="0">Simple Topic 1</li>
         <li id="tab2" role="tab" aria-controls="tabpanel2" tabindex="-1">Simple Topic 2</li>
         <li id="tab3" role="tab" aria-controls="tabpanel3" tabindex="-1">Simple Topic 3</li>
@@ -140,7 +140,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            $("ul#widgettablist li").focusin(function () {
+            $("ul#widgettablist li").focus(function () {
 
 
                 var controls = $(this).attr("aria-controls");
