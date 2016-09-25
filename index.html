@@ -159,7 +159,7 @@
                 var code = e.which;
                 if (code == 40 || code == 39) {
                     if ($(this).is(':last-child')) {
-                        $(this).next("li:first").focus();
+                        $("li:first").focus();
                    //     alert("1");
                     } else {
                         $(this).next("li:first").focus();
@@ -170,7 +170,7 @@
                 if (code == 37 || code == 38) {
 
                     if ($(this).is(':first-child')) {
-                        $(this).prev("li:first").focus();
+                        $("li:last").focus();
                   //      alert("3");
                     } else {
                         $(this).prev("li:first").focus();
