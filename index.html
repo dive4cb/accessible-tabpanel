@@ -150,27 +150,27 @@
                 $(this).parent("ul").next("div#alltabpanels").children("div").not("[id='" + controls + "']").removeClass("blockeddisplayed").addClass("notdisplayed");
             });
 
-            $("ul#widgettablist li").click(function () {
-                $(this).focus();
-            });
+            //            $("ul#widgettablist li").click(function () {
+            //                $(this).focus();
+            //            });
 
             $("ul#widgettablist li").keydown(function (e) {
                 if (code == 40 || code == 39 || code == 37 || code == 38) e.preventDefault();
                 var code = e.which;
                 if (code == 40 || code == 39) {
-                //    if ($(this).is(':last-child')) {
-                  //      $("li:first").focus();
-                //    } else {
+                    if ($(this).is(':last-child')) {
+                        $("li:first").focus();
+                    } else {
                         $(this).next("li:first").focus();
-                  //  };
+                    };
                 };
                 if (code == 37 || code == 38) {
 
-                //    if ($(this).is(':first-child')) {
-                  //      $("li:last").focus();
-            //        } else {
+                    if ($(this).is(':first-child')) {
+                        $("li:last").focus();
+                    } else {
                         $(this).prev("li:first").focus();
-              //      };
+                    };
                 };
                 //CB FIX THIS
                 if (code == 8 || code == 46) {
@@ -190,22 +190,24 @@
             $(".widgettabpanel").removeClass("blockeddisplayedRes");
             $(".widgettabpanel").addClass("notdisplayedRes");
             $(".simpclickme button").attr("aria-expanded", "false");
-        });
 
-        $(".simpclickme button").click(function () {
-            //    alert("test");
-            var n = $(this).attr("aria-expanded");
-            if (n == "false") {
-                $(this).parent().next("div").removeClass("notdisplayedRes");
-                $(this).parent().next("div").addClass("blockeddisplayedRes");
-                $(this).attr("aria-expanded", "true");
-                $(this).children("span").attr("class", "minus");
-            } else {
-                $(this).parent().next("div").removeClass("blockeddisplayedRes");
-                $(this).parent().next("div").addClass("notdisplayedRes");
-                $(this).attr("aria-expanded", "false");
-                $(this).children("span").attr("class", "plus");
-            }
+
+
+            $(".simpclickme button").click(function () {
+                //    alert("test");
+                var n = $(this).attr("aria-expanded");
+                if (n == "false") {
+                    $(this).parent().next("div").removeClass("notdisplayedRes");
+                    $(this).parent().next("div").addClass("blockeddisplayedRes");
+                    $(this).attr("aria-expanded", "true");
+                    $(this).children("span").attr("class", "minus");
+                } else {
+                    $(this).parent().next("div").removeClass("blockeddisplayedRes");
+                    $(this).parent().next("div").addClass("notdisplayedRes");
+                    $(this).attr("aria-expanded", "false");
+                    $(this).children("span").attr("class", "plus");
+                }
+            });
         });
     </script>
 </body>
