@@ -140,80 +140,84 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            $("ul#widgettablist li").focus(function () {
+            //            $("ul#widgettablist li").focus(function () {
+            //
+            //
+            //
+            //            });
 
-
-                var controls = $(this).attr("aria-controls");
-                $(this).attr("aria-controls", controls).attr("aria-selected", true).attr("tabindex", "0");
-                $("ul#widgettablist li").not("[aria-controls='" + controls + "']").removeAttr("aria-selected").attr("tabindex", "-1");
-                $(this).parent("ul").next("div#alltabpanels").children("div[id='" + controls + "']").removeClass("notdisplayed").addClass("blockeddisplayed");
-                $(this).parent("ul").next("div#alltabpanels").children("div").not("[id='" + controls + "']").removeClass("blockeddisplayed").addClass("notdisplayed");
-            });
-
-            $("ul#widgettablist li").click(function () {
-                $(this).focus();
-            });
+            //            $("ul#widgettablist li").click(function () {
+            //                $(this).focus();
+            //            });
 
             $("ul#widgettablist li").keydown(function (e) {
-//                if (code == 40 || code == 39 || code == 37 || code == 38) e.preventDefault();
+                //                if (code == 40 || code == 39 || code == 37 || code == 38) e.preventDefault();
                 var code = e.which;
                 if (code == 40 || code == 39) {
                     if ($(this).is(':last-child')) {
                         $("li:first").focus();
-                   //     alert("1");
+                        //     alert("1");
                     } else {
-                        $(this).next("li:first").focus();
-                   //     alert("2");
+                        $(this).next("li:first").focus(
+
+
+                            var controls = $(this).attr("aria-controls"); $(this).attr("aria-controls", controls).attr("aria-selected", true).attr("tabindex", "0"); $("ul#widgettablist li").not("[aria-controls='" + controls + "']").removeAttr("aria-selected").attr("tabindex", "-1"); $(this).parent("ul").next("div#alltabpanels").children("div[id='" + controls + "']").removeClass("notdisplayed").addClass("blockeddisplayed"); $(this).parent("ul").next("div#alltabpanels").children("div").not("[id='" + controls + "']").removeClass("blockeddisplayed").addClass("notdisplayed");
+
+
+
+
+                        );
+                        //     alert("2");
                     };
-            //        e.preventDefault();
+                    //        e.preventDefault();
                 };
                 if (code == 37 || code == 38) {
 
                     if ($(this).is(':first-child')) {
                         $("li:last").focus();
-                  //      alert("3");
+                        //      alert("3");
                     } else {
                         $(this).prev("li:first").focus();
-                   //     alert("4");
+                        //     alert("4");
                     };
-         //           e.preventDefault();
+                    //           e.preventDefault();
                 };
                 //CB FIX THIS
-                if (code == 8 || code == 46) {
-                    var controls = $(this).attr("aria-controls");
-                    if (code == 8) e.preventDefault();
-                    $(this).addClass("notdisplayed");
-                    $(this).parent("ul").next("div#alltabpanels").children("div[id='" + controls + "']").removeClass("blockeddisplayed").addClass("notdisplayed");
-                    if ($(this).is(':last-child')) {
-                        $("li:first").focus();
-                    } else {
-                        $(this).next("li").focus();
-                    };
-                };
+                //                if (code == 8 || code == 46) {
+                //                    var controls = $(this).attr("aria-controls");
+                //                    if (code == 8) e.preventDefault();
+                //                    $(this).addClass("notdisplayed");
+                //                    $(this).parent("ul").next("div#alltabpanels").children("div[id='" + controls + "']").removeClass("blockeddisplayed").addClass("notdisplayed");
+                //                    if ($(this).is(':last-child')) {
+                //                        $("li:first").focus();
+                //                    } else {
+                //                        $(this).next("li").focus();
+                //                    };
+                //                };
             });
 
             //For Responsive
-            $(".widgettabpanel").removeClass("blockeddisplayedRes");
-            $(".widgettabpanel").addClass("notdisplayedRes");
-            $(".simpclickme button").attr("aria-expanded", "false");
-
-
-
-            $(".simpclickme button").click(function () {
-                //    alert("test");
-                var n = $(this).attr("aria-expanded");
-                if (n == "false") {
-                    $(this).parent().next("div").removeClass("notdisplayedRes");
-                    $(this).parent().next("div").addClass("blockeddisplayedRes");
-                    $(this).attr("aria-expanded", "true");
-                    $(this).children("span").attr("class", "minus");
-                } else {
-                    $(this).parent().next("div").removeClass("blockeddisplayedRes");
-                    $(this).parent().next("div").addClass("notdisplayedRes");
-                    $(this).attr("aria-expanded", "false");
-                    $(this).children("span").attr("class", "plus");
-                };
-            });
+            //            $(".widgettabpanel").removeClass("blockeddisplayedRes");
+            //            $(".widgettabpanel").addClass("notdisplayedRes");
+            //            $(".simpclickme button").attr("aria-expanded", "false");
+            //
+            //
+            //
+            //            $(".simpclickme button").click(function () {
+            //                //    alert("test");
+            //                var n = $(this).attr("aria-expanded");
+            //                if (n == "false") {
+            //                    $(this).parent().next("div").removeClass("notdisplayedRes");
+            //                    $(this).parent().next("div").addClass("blockeddisplayedRes");
+            //                    $(this).attr("aria-expanded", "true");
+            //                    $(this).children("span").attr("class", "minus");
+            //                } else {
+            //                    $(this).parent().next("div").removeClass("blockeddisplayedRes");
+            //                    $(this).parent().next("div").addClass("notdisplayedRes");
+            //                    $(this).attr("aria-expanded", "false");
+            //                    $(this).children("span").attr("class", "plus");
+            //                };
+            //            });
         });
     </script>
 </body>
