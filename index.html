@@ -155,7 +155,7 @@
             });
 
             $("ul#widgettablist li").keydown(function (e) {
-                if (code == 40 || code == 39 || code == 37 || code == 38) return false;
+//                if (code == 40 || code == 39 || code == 37 || code == 38) e.preventDefault();
                 var code = e.which;
                 if (code == 40 || code == 39) {
                     if ($(this).is(':last-child')) {
@@ -208,7 +208,7 @@
                     $(this).parent().next("div").addClass("notdisplayedRes");
                     $(this).attr("aria-expanded", "false");
                     $(this).children("span").attr("class", "plus");
-                }
+                };
             });
         });
     </script>
