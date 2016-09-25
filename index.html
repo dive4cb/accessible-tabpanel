@@ -6,90 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accessible Tabpanel</title>
     <style>
-/*
-        :focus {
-            outline: 4px solid blue;
+        #alltabpanels {
+            position: relative;
+            border: solid black thin;
+            padding: 1em;
         }
-*/
         
-/*        @media only screen and (min-width: 481px) and (max-width: 10000px) {*/
-            #alltabpanels {
-                position: relative;
-                border: solid black thin;
-                padding: 1em;
-            }
-            li[aria-selected="true"] {
-                background-color: yellow;
-            }
-            .notdisplayed {
-                display: none;
-            }
-            #widgettablist li.notdisplayed {
-                display: none;
-            }
-            .blockeddisplayed {
-                display: block;
-            }
-            #widgettablist li {
-                display: inline-block;
-                margin: 0;
-                padding: 1em 1em 0 1em;
-                white-space: nowrap;
-            }
-            ul#widgettablist {
-                margin: 0;
-                padding: 0;
-            }
-/*
-            .simpclickme {
-                display: none;
-            }
+        li[aria-selected="true"] {
+            background-color: yellow;
         }
-*/
         
-/*
-        @media only screen and (min-width: 0px) and (max-width: 480px) {
-            .simpclickme {
-                display: block;
-            }
-            ul#widgettablist {
-                display: none;
-            }
-            #alltabpanels h2 {
-                width: 100%;
-                padding: 0;
-                margin: 0;
-            }
-            #alltabpanels h2 button {
-                font-weight: 700;
-                font-size: 1em;
-                width: 100%;
-                border: thin black solid;
-                text-align: center;
-                background-color: #eee;
-                padding: 0;
-                margin: 2px 0;
-            }
-            h2.simpclickme button span {
-                height: 12px;
-                width: 12px;
-                background-image: url("plus_minus_sprite.gif");
-                display: inline-block;
-            }
-            h2.simpclickme button span.minus {
-                background-position: right;
-            }
-            h2.simpclickme button span.plus {
-                background-position: left;
-            }
-            .notdisplayedRes {
-                display: none;
-            }
-            .blockeddisplayedRes {
-                display: block;
-            }
+        .notdisplayed {
+            display: none;
         }
-*/
+        
+        #widgettablist li.notdisplayed {
+            display: none;
+        }
+        
+        .blockeddisplayed {
+            display: block;
+        }
+        
+        #widgettablist li {
+            display: inline;
+            margin: 0;
+            padding: 1em 1em 0 1em;
+        }
+        
+        ul#widgettablist {
+            margin: 0;
+            padding: 0;
+        }
     </style>
 </head>
 
@@ -97,46 +45,39 @@
     <h1>Accessible Tabpanel</h1>
     <h2>Our List Of Amazing Tabs</h2>
     <ul role="tablist" id="widgettablist">
-        <li id="tab1" role="tab" aria-controls="tabpanel1" aria-selected="true" tabindex="0">Simple Topic 1</li>
-        <li id="tab2" role="tab" aria-controls="tabpanel2" tabindex="-1">Simple Topic 2</li>
-        <li id="tab3" role="tab" aria-controls="tabpanel3" tabindex="-1">Simple Topic 3</li>
-        <li id="tab4" role="tab" aria-controls="tabpanel4" tabindex="-1">Simple Topic 4</li>
-        <li id="tab5" role="tab" aria-controls="tabpanel5" tabindex="-1">Simple Topic 5</li>
-        <li id="tab6" role="tab" aria-controls="tabpanel6" tabindex="-1">Simple Topic 6</li>
-        <li id="tab7" role="tab" aria-controls="tabpanel7" tabindex="-1">Simple Topic 7</li>
+        <li role="tab" aria-controls="tabpanel1" aria-selected="true" tabindex="0">Simple Topic 1</li>
+        <li role="tab" aria-controls="tabpanel2" tabindex="-1">Simple Topic 2</li>
+        <li role="tab" aria-controls="tabpanel3" tabindex="-1">Simple Topic 3</li>
+        <li role="tab" aria-controls="tabpanel4" tabindex="-1">Simple Topic 4</li>
+        <li role="tab" aria-controls="tabpanel5" tabindex="-1">Simple Topic 5</li>
+        <li role="tab" aria-controls="tabpanel6" tabindex="-1">Simple Topic 6</li>
+        <li role="tab" aria-controls="tabpanel7" tabindex="-1">Simple Topic 7</li>
     </ul>
     <div id="alltabpanels">
-<!--        <h2 id="simpacc1" class="simpclickme"><button aria-controls="tabpanel1">Simple Topic 1 <span class="plus"></span></button></h2>-->
         <div role="tabpanel" id="tabpanel1" class="widgettabpanel blockeddisplayed">
             <h3>Simple Topic Heading 1</h3>
             <p>Simple Topic Content 1</p>
         </div>
-<!--        <h2 id="simpacc2" class="simpclickme"><button aria-controls="tabpanel2">Simple Topic 2 <span class="plus"></span></button></h2>-->
         <div role="tabpanel" id="tabpanel2" class="widgettabpanel notdisplayed">
             <h3>Simple Topic Heading 2</h3>
             <p>Simple Topic Content 2</p>
         </div>
-<!--        <h2 id="simpacc3" class="simpclickme"><button aria-controls="tabpanel3">Simple Topic 3 <span class="plus"></span></button></h2>-->
         <div role="tabpanel" id="tabpanel3" class="widgettabpanel notdisplayed">
             <h3>Simple Topic Heading 3</h3>
             <p>Simple Topic Content 3</p>
         </div>
-<!--        <h2 id="simpacc4" class="simpclickme"><button aria-controls="tabpanel4">Simple Topic 4 <span class="plus"></span></button></h2>-->
         <div role="tabpanel" id="tabpanel4" class="widgettabpanel notdisplayed">
             <h3>Simple Topic Heading 4</h3>
             <p>Simple Topic Content 4</p>
         </div>
-<!--        <h2 id="simpacc5" class="simpclickme"><button aria-controls="tabpanel5">Simple Topic 5 <span class="plus"></span></button></h2>-->
         <div role="tabpanel" id="tabpanel5" class="widgettabpanel notdisplayed">
             <h3>Simple Topic Heading 5</h3>
             <p>Simple Topic Content 5</p>
         </div>
-<!--        <h2 id="simpacc6" class="simpclickme"><button aria-controls="tabpanel6">Simple Topic 6 <span class="plus"></span></button></h2>-->
         <div role="tabpanel" id="tabpanel6" class="widgettabpanel notdisplayed">
             <h3>Simple Topic Heading 6</h3>
             <p>Simple Topic Content 6</p>
         </div>
-<!--        <h2 id="simpacc7" class="simpclickme"><button aria-controls="tabpanel7">Simple Topic 7 <span class="plus"></span></button></h2>-->
         <div role="tabpanel" id="tabpanel7" class="widgettabpanel notdisplayed">
             <h3>Simple Topic Heading 7</h3>
             <p>Simple Topic Content 7</p>
@@ -147,8 +88,6 @@
         $(document).ready(function () {
 
             $("ul#widgettablist li").focus(function () {
-
-
                 var controls = $(this).attr("aria-controls");
                 $(this).attr("aria-controls", controls).attr("aria-selected", true).attr("tabindex", "0");
                 $("ul#widgettablist li").not("[aria-controls='" + controls + "']").removeAttr("aria-selected").attr("tabindex", "-1");
@@ -156,12 +95,11 @@
                 $(this).parent("ul").next("div#alltabpanels").children("div").not("[id='" + controls + "']").removeClass("blockeddisplayed").addClass("notdisplayed");
             });
 
-            //            $("ul#widgettablist li").click(function () {
-            //                $(this).focus();
-            //            });
+            $("ul#widgettablist li").click(function () {
+                $(this).focus();
+            });
 
             $("ul#widgettablist li").keydown(function (e) {
-                if (code == 40 || code == 39 || code == 37 || code == 38) e.preventDefault();
                 var code = e.which;
                 if (code == 40 || code == 39) {
                     if ($(this).is(':last-child')) {
@@ -178,42 +116,19 @@
                         $(this).prev("li:first").focus();
                     };
                 };
-                //CB FIX THIS
-//                if (code == 8 || code == 46) {
-//                    var controls = $(this).attr("aria-controls");
-//                    if (code == 8) e.preventDefault();
-//                    $(this).addClass("notdisplayed");
-//                    $(this).parent("ul").next("div#alltabpanels").children("div[id='" + controls + "']").removeClass("blockeddisplayed").addClass("notdisplayed");
-//                    if ($(this).is(':last-child')) {
-//                        $("li:first").focus();
-//                    } else {
-//                        $(this).next("li").focus();
-//                    };
-//                };
+                if (code == 8 || code == 46) {
+                    var controls = $(this).attr("aria-controls");
+                    if (code == 8) e.preventDefault();
+                    $(this).addClass("notdisplayed");
+                    $(this).parent("ul").next("div#alltabpanels").children("div[id='" + controls + "']").removeClass("blockeddisplayed").addClass("notdisplayed");
+                    if ($(this).is(':last-child')) {
+                        $("li:first").focus();
+                    } else {
+                        $(this).next("li").focus();
+                    };
+                };
             });
 
-            //For Responsive
-//            $(".widgettabpanel").removeClass("blockeddisplayedRes");
-//            $(".widgettabpanel").addClass("notdisplayedRes");
-//            $(".simpclickme button").attr("aria-expanded", "false");
-//
-//
-//
-//            $(".simpclickme button").click(function () {
-//                //    alert("test");
-//                var n = $(this).attr("aria-expanded");
-//                if (n == "false") {
-//                    $(this).parent().next("div").removeClass("notdisplayedRes");
-//                    $(this).parent().next("div").addClass("blockeddisplayedRes");
-//                    $(this).attr("aria-expanded", "true");
-//                    $(this).children("span").attr("class", "minus");
-//                } else {
-//                    $(this).parent().next("div").removeClass("blockeddisplayedRes");
-//                    $(this).parent().next("div").addClass("notdisplayedRes");
-//                    $(this).attr("aria-expanded", "false");
-//                    $(this).children("span").attr("class", "plus");
-//                }
-//            });
         });
     </script>
 </body>
