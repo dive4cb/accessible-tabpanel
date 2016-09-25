@@ -141,6 +141,8 @@
         $(document).ready(function () {
 
             $("ul#widgettablist li").focus(function () {
+                if (code == 40 || code == 39 || code == 37 || code == 38) e.preventDefault();
+
                 var controls = $(this).attr("aria-controls");
                 $(this).attr("aria-controls", controls).attr("aria-selected", true).attr("tabindex", "0");
                 $("ul#widgettablist li").not("[aria-controls='" + controls + "']").removeAttr("aria-selected").attr("tabindex", "-1");
@@ -170,17 +172,17 @@
                     };
                 };
                 //CB FIX THIS
-//                if (code == 8 || code == 46) {
-//                    var controls = $(this).attr("aria-controls");
-//                    if (code == 8) e.preventDefault();
-//                    $(this).addClass("notdisplayed");
-//                    $(this).parent("ul").next("div#alltabpanels").children("div[id='" + controls + "']").removeClass("blockeddisplayed").addClass("notdisplayed");
-//                    if ($(this).is(':last-child')) {
-//                        $("li:first").focus();
-//                    } else {
-//                        $(this).next("li").focus();
-//                    };
-//                };
+                if (code == 8 || code == 46) {
+                    var controls = $(this).attr("aria-controls");
+                    if (code == 8) e.preventDefault();
+                    $(this).addClass("notdisplayed");
+                    $(this).parent("ul").next("div#alltabpanels").children("div[id='" + controls + "']").removeClass("blockeddisplayed").addClass("notdisplayed");
+                    if ($(this).is(':last-child')) {
+                        $("li:first").focus();
+                    } else {
+                        $(this).next("li").focus();
+                    };
+                };
             });
 
             //For Responsive
