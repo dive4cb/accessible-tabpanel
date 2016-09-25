@@ -155,7 +155,7 @@
             });
 
             $("ul#widgettablist li").keydown(function (e) {
-                if (code == 40 || code == 39 || code == 37 || code == 38) e.preventDefault();
+//                if (code == 40 || code == 39 || code == 37 || code == 38) e.preventDefault();
                 var code = e.which;
                 if (code == 40 || code == 39) {
                     if ($(this).is(':last-child')) {
@@ -163,8 +163,7 @@
                     } else {
                         $(this).next("li:first").focus();
                     };
-        $(this).off("keydown");
-
+                    e.preventDefault();
                 };
                 if (code == 37 || code == 38) {
 
@@ -173,7 +172,7 @@
                     } else {
                         $(this).prev("li:first").focus();
                     };
-                    $(this).off("keydown");
+                    e.preventDefault();
                 };
                 //CB FIX THIS
                 if (code == 8 || code == 46) {
