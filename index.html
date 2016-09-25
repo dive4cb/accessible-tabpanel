@@ -141,7 +141,7 @@
         $(document).ready(function () {
 
             $("ul#widgettablist li").focus(function () {
-                if (code == 40 || code == 39 || code == 37 || code == 38) e.preventDefault();
+
 
                 var controls = $(this).attr("aria-controls");
                 $(this).attr("aria-controls", controls).attr("aria-selected", true).attr("tabindex", "0");
@@ -155,6 +155,7 @@
             });
 
             $("ul#widgettablist li").keydown(function (e) {
+                if (code == 40 || code == 39 || code == 37 || code == 38) e.preventDefault();
                 var code = e.which;
                 if (code == 40 || code == 39) {
                     if ($(this).is(':last-child')) {
