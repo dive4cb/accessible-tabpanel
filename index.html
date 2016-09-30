@@ -106,27 +106,56 @@
         <h2 id="simpacc1" class="simpclickme"><button aria-controls="tabpanel1">Simple Topic 1 <span class="plus"></span></button></h2>
         <div role="tabpanel" id="tabpanel1" class="widgettabpanel blockeddisplayed">
             <h3>Simple Topic Heading 1</h3>
-            <p>Simple Topic Content 1</p>
+            <p>Simple Topic Content 1 <a href="http://www.deque.com">Deque Systems</a></p>
         </div>
         <h2 id="simpacc2" class="simpclickme"><button aria-controls="tabpanel2">Simple Topic 2 <span class="plus"></span></button></h2>
         <div role="tabpanel" id="tabpanel2" class="widgettabpanel notdisplayed">
             <h3>Simple Topic Heading 2</h3>
-            <p>Simple Topic Content 2</p>
+            <p>Simple Topic Content 2
+                <button>Does Not Do Anything</button>
+            </p>
         </div>
         <h2 id="simpacc3" class="simpclickme"><button aria-controls="tabpanel3">Simple Topic 3 <span class="plus"></span></button></h2>
         <div role="tabpanel" id="tabpanel3" class="widgettabpanel notdisplayed">
             <h3>Simple Topic Heading 3</h3>
             <p>Simple Topic Content 3</p>
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" />
         </div>
         <h2 id="simpacc4" class="simpclickme"><button aria-controls="tabpanel4">Simple Topic 4 <span class="plus"></span></button></h2>
         <div role="tabpanel" id="tabpanel4" class="widgettabpanel notdisplayed">
             <h3>Simple Topic Heading 4</h3>
             <p>Simple Topic Content 4</p>
+            <fieldset>
+                <legend>Select your pizza toppings:</legend>
+                <input id="ham" type="checkbox" name="toppings" value="ham">
+                <label for="ham">Ham</label>
+                <br>
+                <input id="pepperoni" type="checkbox" name="toppings" value="pepperoni">
+                <label for="pepperoni">Pepperoni</label>
+                <br>
+                <input id="mushrooms" type="checkbox" name="toppings" value="mushrooms">
+                <label for="mushrooms">Mushrooms</label>
+                <br>
+                <input id="olives" type="checkbox" name="toppings" value="olives">
+                <label for="olives">Olives</label>
+            </fieldset>
         </div>
         <h2 id="simpacc5" class="simpclickme"><button aria-controls="tabpanel5">Simple Topic 5 <span class="plus"></span></button></h2>
         <div role="tabpanel" id="tabpanel5" class="widgettabpanel notdisplayed">
             <h3>Simple Topic Heading 5</h3>
             <p>Simple Topic Content 5</p>
+            <fieldset>
+                <legend>Choose a shipping method:</legend>
+                <input id="overnight" type="radio" name="shipping" value="overnight">
+                <label for="overnight">Overnight</label>
+                <br>
+                <input id="twoday" type="radio" name="shipping" value="twoday">
+                <label for="twoday">Two day</label>
+                <br>
+                <input id="ground" type="radio" name="shipping" value="ground">
+                <label for="ground">Ground</label>
+            </fieldset>
         </div>
         <h2 id="simpacc6" class="simpclickme"><button aria-controls="tabpanel6">Simple Topic 6 <span class="plus"></span></button></h2>
         <div role="tabpanel" id="tabpanel6" class="widgettabpanel notdisplayed">
@@ -139,6 +168,7 @@
             <p>Simple Topic Content 7</p>
         </div>
     </div>
+    <p>And this is some text outside the tabs. Also has this, <a href="http://www.deque.com">Deque Systems</a></p>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
